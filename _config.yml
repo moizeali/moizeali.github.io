@@ -1,0 +1,30 @@
+title: "Syed Moiz Ali - ML Engineer & Infrastructure Architect"
+description: "Senior Machine Learning Engineer with 9 years of experience in scalable infrastructure and AI-driven applications"
+baseurl: ""
+url: "https://moizeali.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Jekyll plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+author: "Syed Moiz Ali"
+twitter:
+  username: moizeali
+social:
+  name: "Syed Moiz Ali"
+  links:
+    - "https://linkedin.com/in/moizeali"
+    - "https://github.com/moizeali"
+
+# Exclude files
+exclude:
+  - README.md
+  - resume.txt
+  - .claude/

@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Moiz Ali - ML Engineer & Infrastructure Architect</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00D4FF;
+            --secondary-color: #2a5298;
+            --accent-color: #FF5722;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-color: #e1e8ed;
+            --success-color: #28a745;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #1e3c72, #2a5298);
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient-2);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.1;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background: var(--gradient-1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-link:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-link {
+            padding: 20px 30px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section:nth-child(even) {
+            background: var(--bg-secondary);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: var(--text-primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--gradient-1);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Summary */
+        .summary {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Experience */
+        .experience-item {
+            background: var(--bg-primary);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .company {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            background: var(--gradient-1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .achievements {
+            list-style: none;
+        }
+
+        .achievements li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        .achievements li:last-child {
+            border-bottom: none;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--gradient-1);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Education */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .education-item {
+            background: var(--bg-primary);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .degree {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .institution {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .grade {
+            background: var(--success-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-item {
+            background: var(--bg-primary);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .cert-org {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .cert-link:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--gradient-2);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 30px;
+        }
+
+        .footer h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .footer p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 30px;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-link {
+                padding: 15px 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .skills-grid,
+            .education-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content fade-in">
+                <div class="profile-img">
+                    <i class="fas fa-user"></i>
+                </div>
+                <h1>Syed Moiz Ali</h1>
+                <p class="subtitle">Senior ML Engineer & Infrastructure Architect</p>
+                <div class="contact-links">
+                    <a href="mailto:moizeali@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope"></i>
+                        moizeali@gmail.com
+                    </a>
+                    <a href="tel:+919984673534" class="contact-link">
+                        <i class="fas fa-phone"></i>
+                        +91 9984673534
+                    </a>
+                    <a href="https://linkedin.com/in/moizeali" class="contact-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/moizeali" class="contact-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-container">
+                <div class="nav-links">
+                    <a href="#summary" class="nav-link">Summary</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Summary Section -->
+    <section id="summary" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary fade-in">
+                Machine Learning Engineer with <strong>nine years of experience</strong> building scalable infrastructure and backend systems for AI-driven applications. Expertise in cloud infrastructure management (AWS), containerization (Docker/Kubernetes), infrastructure as code (Terraform), and backend development using modern frameworks. Proven track record in designing and maintaining production-grade platforms that support high-traffic applications, with hands-on experience in CI/CD pipelines, monitoring systems, and database optimization across distributed environments.
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+
+            <!-- Current Role -->
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">Studypool Inc.</div>
+                        <div class="job-title">Machine Learning Consultant</div>
+                    </div>
+                    <div class="duration">Aug 2019 - Present</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Scalable Infrastructure Platform:</strong> Architected and maintained production infrastructure using Terraform for reproducible, secure deployments across environments. Built and managed cloud infrastructure on AWS, leveraging EC2, ECS, RDS, S3, CloudWatch, and other services to support application-scaling needs. Implemented infrastructure as code practices that <strong>reduced deployment time by 60%</strong> and improved environment consistency.</li>
+                    <li><strong>Backend Services & API Development:</strong> Developed and supported high-performance backend services using Node.js and Python frameworks, interfacing with MongoDB and PostgreSQL databases to ensure optimal performance and reliability. Built a FastAPI-based microservices architecture that <strong>handles 3x traffic spikes</strong> with automatic scaling capabilities.</li>
+                    <li><strong>Container Orchestration & DevOps:</strong> Containerized multiple service variants using Docker and orchestrated deployment with Kubernetes for automatic scaling, load balancing, and fault tolerance. Implemented CI/CD pipelines using GitHub Actions with comprehensive testing and deployment automation, <strong>reducing deployment failures by 85%</strong>.</li>
+                    <li><strong>Platform Monitoring & Tooling:</strong> Designed custom monitoring solutions integrated with Prometheus and Grafana for real-time performance metrics and alerting. Built reusable infrastructure modules and internal tooling that <strong>improved development velocity by 40%</strong> for product engineering teams.</li>
+                    <li><strong>Data Pipeline Infrastructure:</strong> Leveraged Apache Spark for distributed data processing and feature engineering at scale, enabling real-time computation from streaming data sources. Implemented horizontal pod auto scaling based on system metrics and resource utilization.</li>
+                    <li><strong>Production System Ownership:</strong> Owned the full life cycle of platform features from design and implementation to monitoring and production support, ensuring <strong>99.9% uptime</strong> for critical services across distributed, remote team environments.</li>
+                </ul>
+            </div>
+
+            <!-- Previous Role -->
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">Studypool Inc.</div>
+                        <div class="job-title">Data Consultant</div>
+                    </div>
+                    <div class="duration">Jun 2017 - Jul 2019</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Database Infrastructure Optimization:</strong> Designed and optimized database schemas across PostgreSQL and NoSQL systems, implementing advanced indexing strategies and query performance tuning for high-volume transactions. <strong>Enhanced data retrieval speed by 32%</strong> through strategic infrastructure improvements.</li>
+                    <li><strong>Automated Data Pipeline Systems:</strong> Built automated data processing pipelines integrating SQL and NoSQL databases into scheduled reporting systems. Implemented monitoring and alerting for data pipeline health, significantly reducing manual intervention and improving operational efficiency.</li>
+                </ul>
+            </div>
+
+            <!-- Research Role -->
+            <div class="experience-item fade-in">
+                <div class="experience-header">
+                    <div>
+                        <div class="company">Sultan Qaboos University</div>
+                        <div class="job-title">Research Assistant</div>
+                    </div>
+                    <div class="duration">Nov 2014 - Dec 2015</div>
+                </div>
+                <ul class="achievements">
+                    <li><strong>Order Acceptance Optimization:</strong> Developed a mediator-based system to automate order acceptance decisions, balancing customer demand and production capacity.</li>
+                    <li><strong>Genetic Algorithm Implementation:</strong> Applied genetic algorithms in MATLAB to optimize decision-making by evaluating multiple order scenarios, enhancing profitability and meeting deadlines efficiently.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-cloud" style="color: var(--primary-color);"></i> Platform & Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">EC2</span>
+                        <span class="skill-tag">ECS</span>
+                        <span class="skill-tag">RDS</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">Lambda</span>
+                        <span class="skill-tag">SageMaker</span>
+                        <span class="skill-tag">Terraform</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code" style="color: var(--accent-color);"></i> Backend Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">NestJS</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-cogs" style="color: var(--success-color);"></i> DevOps & Monitoring</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">GitLab CI/CD</span>
+                        <span class="skill-tag">GitHub Actions</span>
+                        <span class="skill-tag">Prometheus</span>
+                        <span class="skill-tag">Grafana</span>
+                        <span class="skill-tag">CloudWatch</span>
+                        <span class="skill-tag">MLflow</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-brain" style="color: var(--secondary-color);"></i> AI & Machine Learning</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Neural Networks</span>
+                        <span class="skill-tag">CNN</span>
+                        <span class="skill-tag">LSTM</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Time Series</span>
+                        <span class="skill-tag">Gradient Boosting</span>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-chart-line" style="color: #FF6F00;"></i> Data & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Apache Spark</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Hugging Face</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">SpaCy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-item fade-in">
+                    <div class="degree">Master of Technology</div>
+                    <div class="institution">Indian Institute of Technology, Kanpur</div>
+                    <div class="grade">CGPA: 8.0/10</div>
+                    <p><strong>Operations Research & Management</strong></p>
+                    <p>2009 - 2011 | Kanpur, India</p>
+                </div>
+
+                <div class="education-item fade-in">
+                    <div class="degree">Bachelor of Engineering</div>
+                    <div class="institution">CSVTU, Bhilai</div>
+                    <div class="grade">CGPA: 8.5/10</div>
+                    <p><strong>Electronics & Telecommunication Engineering</strong></p>
+                    <p>2005 - 2009 | Bhilai, C.G., India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="container">
+            <h2 class="section-title">Professional Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-item fade-in">
+                    <div class="cert-title">Algorithms Specialization</div>
+                    <div class="cert-org">Stanford University</div>
+                    <a href="https://coursera.org/share/c39eed772f5d232667479b033d321770" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-title">Deep Learning Specialization</div>
+                    <div class="cert-org">DeepLearning.ai</div>
+                    <a href="https://coursera.org/share/145eb298473a47378089b5278f16e087" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-title">TensorFlow Developer Specialization</div>
+                    <div class="cert-org">DeepLearning.ai</div>
+                    <a href="https://coursera.org/share/95a5b36e6acfc1e666a10bcbc1de790a" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-title">Generative Adversarial Networks (GANs) Specialization</div>
+                    <div class="cert-org">DeepLearning.ai</div>
+                    <a href="https://coursera.org/share/9329eda302ba403dc4fb718a4c3b55e0" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-title">Machine Learning Engineering for Production (MLOps)</div>
+                    <div class="cert-org">DeepLearning.ai</div>
+                    <a href="https://coursera.org/share/993f1bc267d78a71a2dcd5085edd5cf1" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-title">AI Foundations for Business Specialization</div>
+                    <div class="cert-org">IBM</div>
+                    <a href="https://coursera.org/share/5c3b3b27eb555a6546cac84c10c336c0" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-title">Introduction to Data Science Specialization</div>
+                    <div class="cert-org">IBM</div>
+                    <a href="https://coursera.org/share/c454bc4873106e6eb44040e6c00132c4" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+
+                <div class="cert-item fade-in">
+                    <div class="cert-title">Key Technologies for Business Specialization</div>
+                    <div class="cert-org">IBM</div>
+                    <a href="https://coursera.org/share/3c46d38e1615e12c1491beb1ad2854c1" class="cert-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i>
+                        View Certificate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Let's Build the Future Together</h3>
+                <p>Ready to discuss your next ML infrastructure project?</p>
+                <div class="footer-links">
+                    <a href="mailto:moizeali@gmail.com" class="footer-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/moizeali" class="footer-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/moizeali" class="footer-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="tel:+919984673534" class="footer-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Syed Moiz Ali. All rights reserved. | Hyderabad, India | Open to Remote/Relocation</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active navigation link highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements that should animate
+        document.querySelectorAll('.experience-item, .skill-category, .education-item, .cert-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

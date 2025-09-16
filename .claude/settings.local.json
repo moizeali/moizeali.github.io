@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.coursera.org)",
+      "WebFetch(domain:coursera.org)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

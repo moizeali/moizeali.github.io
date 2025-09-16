@@ -1,0 +1,55 @@
+SUMMARY
+
+Machine Learning Engineer with nine years of experience building scalable infrastructure and backend systems for AI-driven applications. Expertise in cloud infrastructure management (AWS), containerization (Docker/Kubernetes), infrastructure as code (Terraform), and backend development using modern frameworks. I have worked in designing and maintaining production-grade platforms that support high-traffic applications, with hands-on experience in CI/CD pipelines, monitoring systems, and database optimization across distributed environments.
+
+EXPERIENCES
+
+
+
+Machine Learning Consultant
+Studypool Inc.
+	08/2019- Current
+•	Scalable Infrastructure Platform: Architected and maintained production infrastructure using Terraform for reproducible, secure deployments across environments. Built and managed cloud infrastructure on AWS, leveraging EC2, ECS, RDS, S3, CloudWatch, and other services to support application-scaling needs. Implemented infrastructure as code practices that reduced deployment time by 60% and improved environment consistency.
+•	Backend Services & API Development: Developed and supported high-performance backend services using Node.js and Python frameworks, interfacing with MongoDB and PostgreSQL databases to ensure optimal performance and reliability. Built a FastAPI-based microservices architecture that handles 3x traffic spikes with automatic scaling capabilities.
+•	Container Orchestration & DevOps: Containerized multiple service variants using Docker and orchestrated deployment with Kubernetes for automatic scaling, load balancing, and fault tolerance. Implemented CI/CD pipelines using GitHub Actions with comprehensive testing and deployment automation, reducing deployment failures by 85%.
+•	Platform Monitoring & Tooling: Designed custom monitoring solutions integrated with Prometheus and Grafana for real-time performance metrics and alerting. Built reusable infrastructure modules and internal tooling that improved development velocity for product engineering teams by 40%.
+•	Data Pipeline Infrastructure: Leveraged Apache Spark for distributed data processing and feature engineering at scale, enabling real-time computation from streaming data sources. Implemented horizontal pod auto scaling based on system metrics and resource utilization.
+•	Production System Ownership: Owned the full life cycle of platform features from design and implementation to monitoring and production support, ensuring 99.9% uptime for critical services across distributed, remote team environments.
+
+Data Consultant
+Studypool Inc.
+	06/2017‐07/2019
+•	Database Infrastructure Optimization: Designed and optimized database schemas across PostgreSQL and NoSQL systems, implementing advanced indexing strategies and query performance tuning for high-volume transactions. Enhanced data retrieval speed by 32% through strategic infrastructure improvements.
+•	Automated Data Pipeline Systems: Built automated data processing pipelines integrating SQL and NoSQL databases into scheduled reporting systems. Implemented monitoring and alerting for data pipeline health, significantly reducing manual intervention and improving operational efficiency.
+
+Research Assistant
+Sultan Qaboos University
+	11/2014‐12/2015 (Muscat, Oman)
+•	Order Acceptance Optimization: Developed a mediator‐based system to automate order acceptance decisions, balancing customer demand and production capacity.
+•	Genetic Algorithm Implementation: Applied genetic algorithms in MATLAB to optimize decision‐making by evaluating multiple order scenarios, enhancing profitability, and meeting deadlines efficiently.
+
+TECHNICAL SKILLS
+•	Platform & Infrastructure: AWS (EC2, ECS, RDS, S3, Lambda, SageMaker), Terraform, Docker, Kubernetes, Infrastructure as Code
+•	Backend Development: Python, Node.js, TypeScript, FastAPI, Flask, NestJS, PostgreSQL, MongoDB, Redis
+•	DevOps & Monitoring: GitLab CI/CD, GitHub Actions, Prometheus, Grafana, CloudWatch, Mlflow
+•	AI & Machine Learning: Deep Learning, Neural Networks, CNN, LSTM, Transformer Models, NLP, Time Series Forecasting, Gradient Boosting, Ensemble Methods
+•	Data & Analytics: Apache Spark, TensorFlow, PyTorch, Scikit-learn, Hugging Face, Pandas, NumPy, SQL, OpenCV, SpaCy
+
+
+EDUCATION
+Master of Technology in Operations Research (8.0)
+Indian Institute of Technology, Kanpur
+	2009‐2011 (Kanpur, India)
+Bachelor of Engineering in Electronics & Telecommunication Engineering (8.5)
+CSVTU, Bhilai
+	2005‐2009 (Bhilai, C.G., India)
+
+CERTIFICATIONS 
+•	Algorithms (Stanford Online) Specialization : https://coursera.org/share/c39eed772f5d232667479b033d321770
+•	IBM AI Foundations for Business Specialization : https://coursera.org/share/5c3b3b27eb555a6546cac84c10c336c0
+•	IBM Introduction to Data Science Specialization : https://coursera.org/share/c454bc4873106e6eb44040e6c00132c4
+•	IBM Key Technologies for Business Specialization : https://coursera.org/share/3c46d38e1615e12c1491beb1ad2854c1
+•	Deep Learning Specialization ‐ DeepLearning.ai : https://coursera.org/share/145eb298473a47378089b5278f16e087
+•	TensorFlow Developer Specialization ‐ DeepLearning.ai : https://coursera.org/share/95a5b36e6acfc1e666a10bcbc1de790a
+•	Generative Adversarial Networks (GANs) Specialization ‐ Deeplearning.ai : https://coursera.org/share/9329eda302ba403dc4fb718a4c3b55e0
+•	Machine Learning Engineering for Production (MLOps) ‐ Deeplearning.ai : https://coursera.org/share/993f1bc267d78a71a2dcd5085edd5cf1
