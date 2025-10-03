@@ -31,37 +31,62 @@ https://www.tooplate.com/view/2120-ben-resume
   }
 
   :root {
-    --primary-color:        #ffd500;
+    --primary-color:        #4f46e5;
+    --primary-light:        #818cf8;
+    --primary-dark:         #3730a3;
+    --accent-color:         #06b6d4;
     --white-color:          #ffffff;
-    --dark-color:           #010101;
-    --menu-bg-color:        #212529;
+    --dark-color:           #1e293b;
+    --dark-lighter:         #334155;
+    --menu-bg-color:        #0f172a;
+    --bg-light:             #f8fafc;
+    --bg-gray:              #f1f5f9;
 
-    --gray-color:           #909090;
-    --p-color:              #7d7a7a;
+    --gray-color:           #64748b;
+    --gray-light:           #94a3b8;
+    --p-color:              #475569;
 
     --base-font-family:     "Plain", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    --font-weight-bold:     600;
+    --font-weight-bold:     700;
+    --font-weight-semibold: 600;
     --font-weight-normal:   400;
     --font-weight-light:    300;
 
-    --h1-font-size:         56px;
-    --h2-font-size:         48px;
-    --h3-font-size:         38px;
-    --h4-font-size:         34px;
-    --h5-font-size:         30px;
-    --h6-font-size:         24px;
-    --p-font-size:          18px;
-    --base-font-size:       16px;
-    --button-font-size:     20px;
+    --h1-font-size:         3.5rem;
+    --h2-font-size:         2.5rem;
+    --h3-font-size:         2rem;
+    --h4-font-size:         1.5rem;
+    --h5-font-size:         1.25rem;
+    --h6-font-size:         1.125rem;
+    --p-font-size:          1.125rem;
+    --base-font-size:       1rem;
+    --button-font-size:     1rem;
 
     --border-radius-large:  100%;
-    --border-radius-medium: 80px;
-    --border-radius-small:  40px;
+    --border-radius-medium: 12px;
+    --border-radius-small:  8px;
+
+    --transition-fast:      0.2s ease;
+    --transition-normal:    0.3s ease;
+    --transition-slow:      0.5s ease;
+
+    --shadow-sm:            0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md:            0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg:            0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl:            0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
 
   body {
     font-family: var(--base-font-family);
+    color: var(--dark-color);
+    background-color: var(--white-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
 
@@ -102,13 +127,18 @@ https://www.tooplate.com/view/2120-ben-resume
   p {
     color: var(--p-color);
     font-size: var(--p-font-size);
-    font-weight: var(--font-weight-light);
-    letter-spacing: 0.3px;
-    line-height: 2em;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.01em;
+    line-height: 1.8;
+    margin-bottom: 1rem;
   }
 
   .section-padding {
-    padding: 6rem 0;
+    padding: 5rem 0;
+  }
+
+  section {
+    position: relative;
   }
 
   .custom-icon {
@@ -122,20 +152,27 @@ https://www.tooplate.com/view/2120-ben-resume
 
   /* CUSTOM BUTTON */
   .custom-btn {
-    background: var(--dark-color);
-    border: none;
+    background: var(--primary-color);
+    border: 2px solid transparent;
     border-radius: var(--border-radius-medium);
     color: var(--white-color);
-    letter-spacing: 0.2px;
-    padding: 6px 36px 10px 36px;
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.02em;
+    padding: 0.75rem 2rem;
     font-size: var(--button-font-size);
     white-space: nowrap;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    display: inline-block;
   }
 
   .custom-btn:hover,
   .custom-btn:focus {
-    color: var(--dark-color);
-    background: var(--primary-color);
+    color: var(--primary-color);
+    background: var(--white-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
   }
 
 
@@ -173,22 +210,22 @@ https://www.tooplate.com/view/2120-ben-resume
   -----------------------------------------*/
 
   .navbar {
-    background: transparent;
-    padding: 0.3rem 1rem;
-    transition: all 300ms ease-in-out;
-    position: absolute;
-    z-index: 99;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1rem;
+    transition: all var(--transition-normal);
+    position: fixed;
+    z-index: 999;
     top: 0;
     right: 0;
     left: 0;
-    opacity: 0;
+    box-shadow: var(--shadow-md);
   }
 
   .navbar.scroll {
     background: var(--menu-bg-color);
-    padding: 0.5rem 1rem;
-    position: fixed;
-    opacity: 1;
+    padding: 0.75rem 1rem;
+    box-shadow: var(--shadow-lg);
   }
 
   .navbar-brand {
@@ -299,44 +336,159 @@ https://www.tooplate.com/view/2120-ben-resume
 
 
   /*---------------------------------------
-     HERO                
+     HERO
   -----------------------------------------*/
 
-  .hero-title,
-  .email-link {
-    background: var(--dark-color);
-    border-radius: var(--border-radius-medium);
-    color: var(--white-color);
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--white-color) 100%);
+    padding-top: 80px;
+  }
+
+  .profile-image-wrapper {
+    position: relative;
     display: inline-block;
-    margin: 0.5rem 0;
-    padding: 0.5rem 2rem 1.5rem 2rem;
-	font-size: 2.2em;
   }
 
-  .email-link {
-    background: var(--primary-color);
+  .profile-image {
+    border-radius: 50%;
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border: 6px solid var(--white-color);
+    box-shadow: var(--shadow-xl);
+    transition: transform var(--transition-normal);
+  }
+
+  .profile-image:hover {
+    transform: scale(1.05);
+  }
+
+  .greeting-badge {
+    display: inline-block;
+    background: var(--bg-gray);
+    color: var(--gray-color);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-weight-bold);
     color: var(--dark-color);
-    font-size: var(--h4-font-size);
-    padding: 0.5rem 2rem 1rem 2rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
   }
 
-  .email-link:hover {
-    background: var(--dark-color);
+  .hero-subtitle {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-weight-semibold);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    color: var(--p-color);
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .email-link,
+  .resume-link {
+    background: var(--primary-color);
+    color: var(--white-color);
+    padding: 0.875rem 2rem;
+    border-radius: var(--border-radius-medium);
+    font-size: var(--base-font-size);
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-md);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .email-link:hover,
+  .resume-link:hover {
+    background: var(--primary-dark);
+    color: var(--white-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .resume-link {
+    background: var(--white-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+  }
+
+  .resume-link:hover {
+    background: var(--primary-color);
     color: var(--white-color);
   }
 
 
  /*---------------------------------------
- ABOUT                
+ ABOUT
 -----------------------------------------*/
 
 .about {
-    padding: 30px 0; /* Match the padding with other sections like Experience */
+    background: var(--white-color);
+    padding: 5rem 0;
+}
+
+.about h3 {
+    font-weight: var(--font-weight-bold);
+    color: var(--dark-color);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.about h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.about h4 {
+    font-weight: var(--font-weight-semibold);
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+
+.about p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
 }
 
 .about-third {
-    margin: 0; 
-    padding: 10; 
+    background: var(--bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius-medium);
+    margin-top: 2rem;
+    box-shadow: var(--shadow-sm);
 }
 
 .about-image {
@@ -355,107 +507,141 @@ https://www.tooplate.com/view/2120-ben-resume
 
 
  /*---------------------------------------
-     EXPERIENCE & EDUCATION                
+     EXPERIENCE & EDUCATION
   -----------------------------------------*/
 
 .experience, .education, .research {
-    background: #f9f9f9;  /* Same background color */
-    padding: 60px 0; /* Ensure consistent padding */
+    background: var(--bg-light);
+    padding: 5rem 0;
 }
 
-.experience .card-header, .education .card-header, .research .card-header {
-    padding: 0;
-}
-
-.experience .btn-link, .education .btn-link, .research .btn-link {
+.experience h3, .education h3, .research h3, .projects h3, .certifications h3 {
+    font-weight: var(--font-weight-bold);
     color: var(--dark-color);
-    font-size: var(--h6-font-size);
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.experience h3::after, .education h3::after, .research h3::after, .projects h3::after, .certifications h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+.experience .card, .education .card, .research .card, .projects .card, .certifications .card {
+    border: none;
+    border-radius: var(--border-radius-medium);
+    margin-bottom: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    background: var(--white-color);
+    overflow: hidden;
+}
+
+.experience .card:hover, .education .card:hover, .research .card:hover, .projects .card:hover, .certifications .card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.experience .card-header, .education .card-header, .research .card-header, .projects .card-header, .certifications .card-header {
+    padding: 0;
+    background: var(--white-color);
+    border: none;
+}
+
+.experience .btn-link, .education .btn-link, .research .btn-link, .projects .btn-link, .certifications .btn-link {
+    color: var(--dark-color);
+    font-size: 1.125rem;
+    font-weight: var(--font-weight-semibold);
     text-align: left;
     display: block;
     width: 100%;
-    padding: 1rem 2rem;
+    padding: 1.25rem 1.75rem;
+    transition: all var(--transition-fast);
 }
 
-.experience .btn-link:focus, .education .btn-link:focus, .research .btn-link:focus, 
-.experience .btn-link:hover, .education .btn-link:hover, .research .btn-link:hover {
-    color: var(--dark-color);
+.experience .btn-link:focus, .education .btn-link:focus, .research .btn-link:focus, .projects .btn-link:focus, .certifications .btn-link:focus,
+.experience .btn-link:hover, .education .btn-link:hover, .research .btn-link:hover, .projects .btn-link:hover, .certifications .btn-link:hover {
+    color: var(--primary-color);
     text-decoration: none;
 }
 
-.experience .card-body, .education .card-body, .research .card-body {
-    padding: 2rem;
+.experience .card-body, .education .card-body, .research .card-body, .projects .card-body, .certifications .card-body {
+    padding: 1.75rem;
+    background: var(--white-color);
+}
+
+.experience .card-body ul, .education .card-body ul, .research .card-body ul {
+    padding-left: 1.25rem;
+    margin-bottom: 0;
+}
+
+.experience .card-body li, .education .card-body li, .research .card-body li {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: var(--p-color);
+}
+
+.experience .card-body li:last-child, .education .card-body li:last-child, .research .card-body li:last-child {
+    margin-bottom: 0;
 }
 
 .experience-info-text, .education-info-text, .research-info-text {
     font-size: var(--base-font-size);
     display: block;
-    margin: 1.5rem 2rem 0 2rem;
+    margin: 1.5rem 0 0 0;
+    color: var(--gray-color);
 }
 
 /*---------------------------------------
-     PROJECTS & CERTIFICATIONS                
+     PROJECTS & CERTIFICATIONS
   -----------------------------------------*/
 
-.projects .card-header, .certifications .card-header {
-    padding: 0;
-}
-
-.projects .btn-link, .certifications .btn-link {
-    color: var(--dark-color);
-    font-size: var(--h6-font-size);
-    text-align: left;
-    display: block;
-    width: 100%;
-    padding: 1rem 2rem;
-}
-
-.projects .btn-link:focus, .projects .btn-link:hover, 
-.certifications .btn-link:focus, .certifications .btn-link:hover {
-    color: var(--dark-color);
-    text-decoration: none;
-}
-
-.projects .card-body, .certifications .card-body {
-    padding: 2rem;
+.projects, .certifications {
+    background: var(--white-color);
+    padding: 5rem 0;
 }
 
 .projects-info-text, .certifications-info-text {
     font-size: var(--base-font-size);
     display: block;
-    margin: 1.5rem 2rem 0 2rem;
+    margin: 1.5rem 0 0 0;
+    color: var(--gray-color);
 }
 
 /*---------------------------------------
-     RESEARCH EXPERIENCE & PUBLICATIONS                
+     CONTACT
   -----------------------------------------*/
 
-  .research .card-header {
-    padding: 0;
+  .contact {
+    background: var(--bg-light);
+    padding: 5rem 0;
   }
 
-  .research .btn-link {
+  .contact h3 {
+    font-weight: var(--font-weight-bold);
     color: var(--dark-color);
-    font-size: var(--h6-font-size);
-    text-align: left;
-    display: block;
-    width: 100%;
-    padding: 1rem 2rem;
+    margin-bottom: 2rem;
   }
 
-  .research .btn-link:focus, 
-  .research .btn-link:hover {
-    color: var(--dark-color);
-    text-decoration: none;
+  .contact p {
+    color: var(--p-color);
+    font-size: 1.125rem;
   }
 
-  .research .card-body {
-    padding: 2rem;
+  .contact a {
+    color: var(--primary-color);
+    transition: color var(--transition-fast);
   }
 
-  .research-info-text {
-    font-size: var(--base-font-size);
-    display: block;
-    margin: 1.5rem 2rem 0 2rem;
+  .contact a:hover {
+    color: var(--primary-dark);
   }
 
 
@@ -556,12 +742,16 @@ https://www.tooplate.com/view/2120-ben-resume
 
 
   /*---------------------------------------
-     SOCIAL LINKS              
+     SOCIAL LINKS
   -----------------------------------------*/
 
   .social-links {
-    margin: 40px 0;
+    margin: 2.5rem 0;
     padding: 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .social-links li {
@@ -570,83 +760,303 @@ https://www.tooplate.com/view/2120-ben-resume
   }
 
   .social-links a {
-    display: inline-block;
-    color: var(--p-color);
-    font-size: var(--h6-font-size);
-    margin: 5px 20px 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--white-color);
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
   }
 
   .social-links a:hover {
-    color: var(--dark-color);
+    background: var(--primary-color);
+    color: var(--white-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
   }
 
 
   /*---------------------------------------
-     RESPONSIVE STYLES              
+     RESPONSIVE STYLES
   -----------------------------------------*/
 
   @media screen and (max-width: 1200px) {
-    h1 {
-        font-size: 42px;
-    }
-
-    h2 {
-        font-size: 36px;
-    }
-
-    h3 {
-        font-size: 32px;
-    }
-
-    h4 {
-        font-size: 28px;
-    }
-
-    .email-link {
-      font-size: 28px;
+    :root {
+      --h1-font-size: 3rem;
+      --h2-font-size: 2.25rem;
+      --h3-font-size: 1.75rem;
+      --h4-font-size: 1.375rem;
     }
   }
 
   @media screen and (max-width: 992px) {
-
-    .hero-title {
-      font-size: 1.8em;
-      padding-bottom: 1rem;
+    :root {
+      --h1-font-size: 2.5rem;
+      --h2-font-size: 2rem;
+      --h3-font-size: 1.625rem;
     }
 
-    .email-link {
-      font-size: 22px;
-      padding: 0.5rem 2rem 0.7rem 2rem;
+    .section-padding {
+      padding: 4rem 0;
+    }
+
+    .profile-image {
+      width: 240px;
+      height: 240px;
+    }
+
+    .hero {
+      padding-top: 100px;
+    }
+
+    .hero-text {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .hero-actions {
+      justify-content: center;
     }
   }
 
   @media screen and (max-width: 991px) {
     .navbar-nav {
       margin: 1rem 0;
+      background: var(--menu-bg-color);
+      padding: 1rem;
+      border-radius: var(--border-radius-medium);
     }
 
     .navbar-expand-lg .navbar-nav .nav-link {
-      display: inline-block;
-      margin: 5px 0.5rem;
+      display: block;
+      margin: 0.5rem 0;
+      padding: 0.5rem 1rem;
     }
   }
 
   @media screen and (max-width: 768px) {
+    :root {
+      --h1-font-size: 2rem;
+      --h2-font-size: 1.625rem;
+      --h3-font-size: 1.5rem;
+      --p-font-size: 1rem;
+    }
 
-    .hero-text {
-      position: relative;
-      top: 1.5rem;
+    .section-padding {
+      padding: 3rem 0;
+    }
+
+    .profile-image {
+      width: 200px;
+      height: 200px;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .about-third {
+      padding: 1.5rem;
+    }
+
+    .experience .btn-link, .education .btn-link, .research .btn-link,
+    .projects .btn-link, .certifications .btn-link {
+      font-size: 1rem;
+      padding: 1rem 1.25rem;
+    }
+
+    .experience .card-body, .education .card-body, .research .card-body,
+    .projects .card-body, .certifications .card-body {
+      padding: 1.25rem;
     }
   }
 
   @media screen and (max-width: 480px) {
-
-    .hero-title {
-      font-size: 26px;
+    :root {
+      --h1-font-size: 1.75rem;
+      --h2-font-size: 1.375rem;
+      --h3-font-size: 1.25rem;
     }
 
-    .email-link {
-      font-size: 20px;
-      padding: 0.3rem 2rem 0.6rem 2rem;
+    .profile-image {
+      width: 180px;
+      height: 180px;
+    }
+
+    .greeting-badge {
+      font-size: 0.8rem;
+      padding: 0.4rem 1rem;
+    }
+
+    .email-link, .resume-link {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-actions a {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .social-links a {
+      width: 44px;
+      height: 44px;
+      font-size: 1.125rem;
+    }
+  }
+
+  /*---------------------------------------
+     ANIMATIONS & UTILITIES
+  -----------------------------------------*/
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Scroll reveal animations */
+  .animate-on-scroll {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .hero-text {
+    animation: fadeInUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+  }
+
+  .profile-image-wrapper {
+    animation: fadeIn 1s ease 0.4s forwards;
+    opacity: 0;
+  }
+
+  section {
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  /* Smooth fade for cards */
+  .card {
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  .card:nth-child(1) { animation-delay: 0.1s; opacity: 0; }
+  .card:nth-child(2) { animation-delay: 0.2s; opacity: 0; }
+  .card:nth-child(3) { animation-delay: 0.3s; opacity: 0; }
+  .card:nth-child(4) { animation-delay: 0.4s; opacity: 0; }
+  .card:nth-child(5) { animation-delay: 0.5s; opacity: 0; }
+  .card:nth-child(n+6) { animation-delay: 0.6s; opacity: 0; }
+
+  /* Utility classes */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /*---------------------------------------
+     TECH STACK BADGES
+  -----------------------------------------*/
+
+  .tech-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  .tech-category {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .tech-label {
+    font-weight: var(--font-weight-semibold);
+    color: var(--dark-color);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tech-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    color: var(--white-color);
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-semibold);
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tech-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  @media screen and (max-width: 768px) {
+    .tech-stack {
+      gap: 1.25rem;
+    }
+
+    .tech-badge {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
     }
   }
